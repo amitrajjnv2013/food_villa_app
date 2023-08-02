@@ -5,8 +5,8 @@
 
 # Node artifact files
 .parcel-cache/
-/node_modules
-/build
+node_modules/
+dist/
  
 
 # Compiled Java class files

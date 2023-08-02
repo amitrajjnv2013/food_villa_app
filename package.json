@@ -1,0 +1,34 @@
+{
+  "name": "food_villa_app",
+  "version": "1.0.0",
+  "homepage": "https://amitrajjnv2013.github.io/food_villa_app",
+  "description": "",
+  "scripts": {
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
+    "start": "parcel index.html",
+    "build": "parcel build index.html",
+    "test": "jest"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@babel/core": "^7.22.5",
+    "babel-plugin-transform-remove-console": "^6.9.4",
+    "gh-pages": "^5.0.0",
+    "parcel": "^2.9.3",
+    "process": "^0.11.10"
+  },
+  "dependencies": {
+    "@reduxjs/toolkit": "^1.9.5",
+    "formik": "^2.4.2",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-redux": "^8.1.2",
+    "react-router-dom": "^6.14.0",
+    "yup": "^1.2.0"
+  },
+  "browsersList": [
+    "last 10 Chrome versions"
+  ]
+}

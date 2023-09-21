@@ -12,6 +12,7 @@ const CardShimmer = () => {
   );
 };
 
+
 export const MenuShimmer = () => {
   return (
     <div className="restaurant-menu">

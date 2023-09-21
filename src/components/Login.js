@@ -2,7 +2,7 @@ import React from "react";
 import { Formik } from "formik"; // import Formik from formik
 import * as Yup from "yup"; // import Yup from yup
 import { useNavigate } from "react-router-dom";
-import loginimage from "/images/loginimage.png"
+
 // create a schema for validation
 const schema = Yup.object().shape({
   email: Yup.string()
@@ -10,18 +10,19 @@ const schema = Yup.object().shape({
     .email("Invalid email format"),
   password: Yup.string()
     .required("Password is a required field")
-    .min(8, "Password must be at least 8 characters"),
+    .min(5, "Password must be at least 5 characters"),
 });
 
 
 
 const Login = () => {
+   
   const navigate = useNavigate();
 
-  function handleNavigate(values) {
+ function handleNavigate(values) {
     // Alert the input values of the form that we filled
     alert(values);
-    // setTimeout for navigate from login page to home page
+    //setTimeout for navigate from login page to home page
     setTimeout(() => {
       navigate("/");
     }, 0);
@@ -36,7 +37,9 @@ const Login = () => {
         initialValues={{ email: "", password: "" }}
         onSubmit={(values) => {
           // call handleNavigate and pass input filed data
+           
           handleNavigate(JSON.stringify(values));
+           
         }}
       >
         {({

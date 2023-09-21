@@ -1,5 +1,6 @@
 import { useState } from "react";
 import contact from "/images/contact.png";
+import ProfileDeveloper from "./ProfileDeveloper";
 
 const Contact = () => {
   const [message, setMessage] = useState(false);
@@ -9,8 +10,9 @@ const Contact = () => {
     }
   return (
     <div className="contact-container" >
-      <div className="contact-left">
-      <img src={contact} alt="" />
+      <div className='developer-profile'>
+      {/* <img src={contact} alt="" /> */}
+      <ProfileDeveloper />
       </div>
       <div className="contact-right">
       <h1>Contact us</h1>

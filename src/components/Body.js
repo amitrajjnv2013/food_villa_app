@@ -1,5 +1,5 @@
 import RestaurantCard from "./restaurantCard";
-import { useEffect, useState } from "react"; /* This is named export */
+import { useState } from "react"; /* This is named export */
 import Shimmer from "./Shimmer"; /* This is default export */
 import { swiggy_api_URL } from "../constants";
 import { Link } from "react-router-dom";
@@ -8,13 +8,7 @@ import useOnline from "../Hooks/useOnline";
 import useResData from "../Hooks/useResData";
 import UserOffline from "./UserOffline";
 
-// Filter the restaurant data according input type
-// function filterData(searchText, restaurants) {
-//   const filterData = restaurants.filter((restaurant) =>
-//     restaurant?.data?.name.toLowerCase().includes(searchText.toLowerCase())
-//   );
-//   return filterData;
-// }
+ 
 
 // Body Component for body section: It contain all restaurant cards
 const Body = () => {
@@ -28,26 +22,7 @@ const Body = () => {
   if (!isOnline) {
     return <UserOffline />
   }
-  // use useEffect for one time call getRestaurants using empty dependency array
-  // useEffect(() => {
-  //   getRestaurants();
-  // }, []);
-
-  // // async function getRestaurant to fetch Swiggy API data
-  // async function getRestaurants() {
-  //   // handle the error using try... catch
-  //   try {
-  //     //const data = await fetch(swiggy_api_URL);
-  //     const data = await fetch(swiggy_api_URL);
-  //     const json = await data.json();
-  //     // updated state variable restaurants with Swiggy API data
-  //     setAllRestaurants(json?.data?.cards[2]?.data?.data?.cards);
-  //     setFilteredRestaurants(json?.data?.cards[2]?.data?.data?.cards);
-       
-  //   } catch (error) {
-  //     console.log(error);
-  //   }
-  // }
+   
 
   // use searchData function and set condition if data is empty show error message
   const searchData = (searchText, restaurants) => {

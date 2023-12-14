@@ -8,8 +8,6 @@ import useOnline from "../Hooks/useOnline";
 import useResData from "../Hooks/useResData";
 import UserOffline from "./UserOffline";
 
- 
-
 // Body Component for body section: It contain all restaurant cards
 const Body = () => {
   // useState: To create a state variable, searchText, allRestaurants and filteredRestaurants is local state variable
@@ -20,9 +18,8 @@ const Body = () => {
   const isOnline = useOnline();
   // if user is not Online then return UserOffline component
   if (!isOnline) {
-    return <UserOffline />
+    return <UserOffline />;
   }
-   
 
   // use searchData function and set condition if data is empty show error message
   const searchData = (searchText, restaurants) => {
@@ -46,28 +43,31 @@ const Body = () => {
 
   return (
     <>
-      <div className="search-container">
-        <input
-          type="text"
-          className="search-input"
-          placeholder="Search a restaurant you want..."
-          value={searchText}
-          // update the state variable searchText when we typing in input box
-          onChange={(e) => {
-            setSearchText(e.target.value);
-            // when user will enter the data, it automatically called searchData function so it work same as when you click on Search button
-            searchData(e.target.value, allRestaurants);
-          }}
-        ></input>
-        <button
-          className="search-btn"
-          onClick={() => {
-            // user click on button searchData function is called
-            searchData(searchText, allRestaurants);
-          }}
-        >
-          Search
-        </button>
+      <div className="bg-image">
+        
+        <div className="search-container">
+          <input
+            type="text"
+            className="search-input"
+            placeholder="Search a restaurant you want..."
+            value={searchText}
+            // update the state variable searchText when we typing in input box
+            onChange={(e) => {
+              setSearchText(e.target.value);
+              // when user will enter the data, it automatically called searchData function so it work same as when you click on Search button
+              searchData(e.target.value, allRestaurants);
+            }}
+          ></input>
+          <button
+            className="search-btn"
+            onClick={() => {
+              // user click on button searchData function is called
+              searchData(searchText, allRestaurants);
+            }}
+          >
+            Search
+          </button>
+        </div>
       </div>
       {errorMessage && <div className="error-container">{errorMessage}</div>}
 

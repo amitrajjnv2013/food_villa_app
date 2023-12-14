@@ -1,38 +1,36 @@
 import { useState } from "react";
 import logo from "/images/logo.jpeg";
-import {Link , useNavigate} from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { Provider, useSelector } from "react-redux";
-
-
+import useOnline from "../Hooks/useOnline";
 
 // Title component for display logo
 const Title = () => (
-    <a href="/">
-      <img className="logo" src={logo} alt="Food Villa Logo" />
-    </a>
-  );
+  <a href="/">
+    <img className="logo" src={logo} alt="Food Villa Logo" />
+  </a>
+);
 
-  
-  // Header component for header section: Logo, Nav Items
-  const Header = () => {
-    const [isLoggedin, setIsLoggedin] = useState(true);
-    const navigate = useNavigate();
-    const cartItems= useSelector((store)=>store.cart.items);
+// Header component for header section: Logo, Nav Items
+const Header = () => {
+  const [isLoggedin, setIsLoggedin] = useState(true);
+  const navigate = useNavigate();
+  const cartItems = useSelector((store) => store.cart.items);
 
-    return (
-       
-      <div className="header">
-        <Title />
-        <div className="name">
-            <h1>
-                <span>F</span>ood
-                <span>V</span>illa
-            </h1>
-            <h4>Delivering happiness...........</h4>
+  let isOnline= useOnline();
 
-        </div>
-        <div className="nav-items">
-          <ul>
+  return (
+    <div className="header">
+      <Title />
+      <div className="name">
+        <h1>
+          <span>F</span>ood
+          <span>V</span>illa
+        </h1>
+        <h4>Delivering happiness...........</h4>
+      </div>
+      <div className="nav-items">
+        <ul>
           <li>
             <Link to="/">Home</Link>
           </li>
@@ -43,13 +41,16 @@ const Title = () => (
           <li>
             <Link to="/contact">Contact</Link>
           </li>
-            <li>
-              <Link to="/cart">
+          <li>
+            <Link to="/instamart">Instamart</Link>
+          </li>
+          <li>
+            <Link to="/cart">
               <i class="fa fa-shopping-cart" aria-hidden="true"></i>
               <span className="cart-count">{cartItems.length}</span>
-              </Link>
-            </li>
-            <li>
+            </Link>
+          </li>
+          <li>
             {/* use conditional rendering for login and logout */}
             {isLoggedin ? (
               <button
@@ -64,11 +65,15 @@ const Title = () => (
               </button>
             )}
           </li>
-          </ul>
-        </div>
+          
+            {
+              isOnline ? <li>✅</li> : <li>🔴</li>
+            }
+          
+        </ul>
       </div>
-       
-    );
-  };
+    </div>
+  );
+};
 
-  export default Header;
+export default Header;

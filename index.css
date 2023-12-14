@@ -832,6 +832,15 @@
 }
 
 /* profile page ends */
+/* instamart css starts */
+
+.instamart-container h1{
+    font-display:var(--dark-green);
+    text-align: center;
+    font-optical-sizing:auto;
+    padding-top: 30px;
+    text-decoration: #00ad1d;
+}
 
 
 
